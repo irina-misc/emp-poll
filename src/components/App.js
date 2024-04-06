@@ -7,7 +7,7 @@ import { useEffect, Fragment } from "react";
 import Nav from "./Nav";
 import New from "./New";
 import Home from "./Home";
-import PollDetail from "./PollDetail";
+import PollSummary from "./PollSummary";
 import Leaderboard from "./Leaderboard";
 import NotFound from "./NotFound"
 
@@ -32,7 +32,7 @@ const App = (props) => {
                             <Route path="/" exact element={<Home />} />
                             <Route path="/leaderboard" element={<Leaderboard />} />
                             <Route path="/add" element={<New />} />
-                            <Route path="/question/:id" element={<PollDetail />} />
+                            <Route path="/question/:id" element={<PollSummary />} />
                             <Route path="*" exact element={<NotFound />} />
                         </Routes>
                     </div>

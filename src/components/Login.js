@@ -10,8 +10,7 @@ const Login = (props) => {
         return null;
     }
 
-    const handleChange = (e) => {
-        console.log("e.target.value=", e.target.value);
+    const handleChange = (e) => {        
         setSelectedUser(e.target.value);
     };
 
@@ -27,10 +26,10 @@ const Login = (props) => {
         <div className="card-body">
             <form data-testid="log-form" onSubmit={(e) => handleLogon(e)}>
                 <div>
-                    <select data-testid="select-user" role="combobox" style={{ width: "15.5em", marginBottom: 30 }} value={selectedUser !== null ? selectedUser : 'n/a'} onChange={handleChange}>
-                        <option role="option" key="1" value="n/a" disabled >Select user...</option>
+                    <select data-testid="select-user" style={{ width: "15.5em", marginBottom: 30 }} value={selectedUser !== null ? selectedUser : 'n/a'} onChange={handleChange}>
+                        <option key="1" value="n/a" disabled >Select user...</option>
                         {props.users && Object.keys(props.users).map(id => {
-                            return (<option key={id} value={id} role="option">{props.users[id].name}</option>)
+                            return (<option key={id} value={id}>{props.users[id].name}</option>)
                         })}
                     </select>
                 </div>

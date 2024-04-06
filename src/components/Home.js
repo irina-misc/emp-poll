@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PollSummary from "./PollSummary";
+import PollInfo from "./PollInfo";
 
 const Home = (props) => {
     return (
@@ -18,13 +18,13 @@ const Home = (props) => {
                 <div className="row border">
                     <div className="col border text-center">
                         {props.nonAnswered.map(id =>
-                            <PollSummary id={id} voted={false} key={id} />)
+                            <PollInfo id={id} voted={false} key={id} />)
                         }
                     </div>
 
                     <div className="col border text-center">
                         {props.answered.map(id =>
-                            <PollSummary id={id} voted={true} key={id} />
+                            <PollInfo id={id} voted={true} key={id} />
                         )
                         }
                     </div>

@@ -8,9 +8,10 @@ import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router';
 import { handleInitialData } from "../actions/shared"
 import Login from '../components/Login';
-import App from '../components/App';
+import {getUsers} from '../utils/api';
 
 describe("Login", () => {
+  
   it("Login component render snapshot", () => {
     const store = createStore(reducer, middleware);
     store.dispatch(handleInitialData());
@@ -25,12 +26,10 @@ describe("Login", () => {
     expect(component).toMatchSnapshot();
   });
 
-  it("Log On button should be disabled if no user selected", async () => {
+  it("Log On button should be disabled - no user selected", async () => {
     const store = createStore(reducer, middleware);
-
-    const response = await store.dispatch(handleInitialData()).catch(e => e);
-    const { users } = store.getState();
-    //console.log(users);
+    const  users = getUsers();
+    
     const component = render(
       <Provider store={store}>
         <Login users={users} />
@@ -43,23 +42,10 @@ describe("Login", () => {
   });
 
 
-  it('Log On button should be enabled if user selected', () => {
+  it('Log On button should be enabled - user selected', () => {
     const store = createStore(reducer, middleware);
-    let users = {
-      sarahedo: {
-        id: 'sarahedo',
-        password: 'password123',
-        name: 'Sarah Edo',
-        avatarURL: './images/sarahedo.JPG',
-        answers: {
-          "8xf0y6ziyjabvozdd253nd": 'optionOne',
-          "6ni6ok3ym7mf1p33lnez": 'optionOne',
-          "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-          "loxhs1bqm25b708cmbf3g": 'optionTwo'
-        },
-        questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
-      }
-    };
+    const  users = getUsers();
+    
     const component = render(
       <Provider store={store}>
         <Login users={users} />

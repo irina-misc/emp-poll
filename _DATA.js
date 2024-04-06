@@ -3,7 +3,7 @@ let users = {
     id: 'sarahedo',
     password:'password123',
     name: 'Sarah Edo',
-    avatarURL: './images/sarahedo.JPG',
+    avatarURL: './images/sarahedo.ico',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -16,7 +16,7 @@ let users = {
     id: 'tylermcginnis',
     password:'abc321',
     name: 'Tyler McGinnis',
-    avatarURL: './images/tylermcginnis.JPG',
+    avatarURL: './images/tylermcginnis.ico',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -27,7 +27,7 @@ let users = {
     id: 'mtsamis',
     password:'xyz123',
     name: 'Mike Tsamis',
-    avatarURL: './images/mtsamis.JPG',
+    avatarURL: './images/mtsamis.ico',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -39,7 +39,7 @@ let users = {
     id: 'zoshikanlu',
     password:'pass246',
     name: 'Zenobia Oshikanlu',
-    avatarURL: './images/zoshikanlu.JPG',
+    avatarURL: './images/zoshikanlu.ico',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
     },
@@ -145,6 +145,7 @@ export function _getQuestions () {
 }
 
 function formatQuestion ({ optionOneText, optionTwoText, author }) {
+  console.log("in formatQuestion")
   return {
     id: generateUID(),
     timestamp: Date.now(),
@@ -165,8 +166,9 @@ export function _saveQuestion (question) {
     if (!question.optionOneText || !question.optionTwoText || !question.author) {
       reject("Please provide optionOneText, optionTwoText, and author");
     }
-
+    console.log("b4 formattedQuestion=");    
     const formattedQuestion = formatQuestion(question)
+    console.log("after formattedQuestion=",formattedQuestion);
     setTimeout(() => {
       questions = {
         ...questions,
@@ -183,8 +185,9 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
     if (!authedUser || !qid || !answer) {
       reject("Please provide authedUser, qid, and answer");
     }
-
     setTimeout(() => {
+
+      console.log("aaaaaaaaaaaaaa=");  
       users = {
         ...users,
         [authedUser]: {

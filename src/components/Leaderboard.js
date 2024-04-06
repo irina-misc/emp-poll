@@ -2,10 +2,9 @@ import { connect } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Leaderboard = (props) => {
-
     return (
         <div>
-            <h3 >Leader Board</h3>
+            <h3 >Leaderboard</h3>
             <table className="table">
                 <thead className="head-light" >
                     <tr>
@@ -16,10 +15,10 @@ const Leaderboard = (props) => {
                 </thead>
 
                 <tbody>
-                    {props.user_ids.map((id, idx) =>
-                        <tr>
+                    {props.user_ids.map((id, idx) => 
+                        <tr key = {idx}>
                             <td >
-                                <img width="30" height="30" src={require('../images/' + props.users[id].id + '.ico')} alt={'Avatar of ${props.users[id].id}'} />
+                                <img width="30" height="30" src={require('../images/' + props.users[id].id + '.ico')} alt={props.users[id].name} />
                                 <span style={{ paddingLeft: 10 }}> {props.users[id].name}</span></td>
                             <td>{Object.keys(props.users[id].answers).length}</td>
                             <td>{props.users[id].questions.length}</td>
