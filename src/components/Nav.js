@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { handleSetAuthedUser } from "../actions/authedUser"
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 
 const Nav = (props) => {
 
@@ -21,7 +20,8 @@ const Nav = (props) => {
             <Link className="navbar-brand" to="/add">New question</Link>
             <Link className="navbar-brand" to="/leaderboard">Leader Board</Link>
             <div>
-                <img width="30" height="30" src={require('../images/' + user_id + '.ico')} alt={'Avatar of ${user_id}'} />
+                <img width="30" height="30" src={require('../images/' + user_id + '.ico')}
+                    alt={'Avatar of ${user_id}'} />
                 <span style={{ color: "white", paddingLeft: 20 }}><b>{user_name}</b></span>
             </div>
             <button style={{ color: "white" }} className="btn btn-secondary" onClick={(e) => handleLogOut(e)} >

@@ -19,13 +19,18 @@ Object {
         <div
           class="card-body"
         >
-          <form>
+          <form
+            data-testid="log-form"
+          >
             <div>
               <select
+                data-testid="select-user"
+                role="combobox"
                 style="width: 15.5em; margin-bottom: 30px;"
               >
                 <option
                   disabled=""
+                  role="option"
                   value="n/a"
                 >
                   Select user...
@@ -60,13 +65,18 @@ Object {
       <div
         class="card-body"
       >
-        <form>
+        <form
+          data-testid="log-form"
+        >
           <div>
             <select
+              data-testid="select-user"
+              role="combobox"
               style="width: 15.5em; margin-bottom: 30px;"
             >
               <option
                 disabled=""
+                role="option"
                 value="n/a"
               >
                 Select user...
