@@ -96,3 +96,63 @@ Your code will talk to the database via 4 methods:
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
 
+# Structure of the aplication:
+**actions** - plain JavaScript objects that have a type field. 
+| Name | Description |
+|-----------------|-------------------|
+| authedUser.js | action for Authorised User|
+| questions.js | action for Questions|
+| shared.js | action for shared code|
+| users.js | action for all Users|
+
+   
+**components**
+| Name | Description |
+|-----------------|-------------------|
+| App.js | Starting point of the application, where routes are defined|
+| Home.js | This component has sections with Answered and Unanswered questions|
+| Leaderboard.js | This component displasy summary in the table format for all users|
+| Login.js | This component is a starting point for the application, where user can be select from the list of all users|
+| Nav.js | This component has all route options available for the application. It is presented on all pages except Login page|
+| New.js | This component allows user to enter 2 "Would you Rather" type of questions|
+| NotFound.js | Error page for the application|
+| PollInfo.js | Component, which allows user to vote for the specipic option for the unanswered question|
+| PollSummary.js | Component, which displays information about answered questions (with statistics)|
+
+   
+**images** - images for the users
+  - mtsamis.ico
+  - sarahedo.ico
+  - tylermcginnis.ico
+  - zoshikanlu.ico
+
+**middleware** - series of functions that are executed in the order they are defined
+| Name | Description |
+|-----------------|-------------------|
+| index.js | defines applyMiddleware|
+| logger.js | defines logger|
+
+  
+**reducers** - functions that take the current state and an action as arguments, and return a new state result.
+| Name | Description |
+|-----------------|-------------------|
+| authedUser.js | reducer for Authorised User|
+| index.js| combine reducers|
+| questions.js | reducer for Questions|
+| users.js | reducer for all User|
+
+   
+**tests**
+| Name | Description |
+|-----------------|-------------------|
+| Data_api.test.js | test for Data layer|
+| Login.test.js | test for Login page|
+| NotFound.test.js | test for Error (404) page|
+
+    
+**utils**
+| Name | Description |
+|-----------------|-------------------|
+| api.js | API calls consuming data from _DATA file|
+| helpers.js | helper functions|
+| _DATA.js | all data for the application|
