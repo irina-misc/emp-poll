@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@material/tabs": "^2.3.0",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.3",
     "@testing-library/jest-dom": "^5.17.0",
@@ -19,6 +20,7 @@
     "react-router": "^6.2.1",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "react-tabs": "^6.0.2",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4"

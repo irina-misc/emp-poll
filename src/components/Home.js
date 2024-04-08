@@ -1,39 +1,38 @@
 import { connect } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PollInfo from "./PollInfo";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import 'react-tabs/style/react-tabs.css';
 
 const Home = (props) => {
     return (
         <div >
             <h3 style={{ textAlign: "center" }} data-testid="home-card"> Employee Polls</h3>
             <div className="container">
-                <div className="row">
-                    <div className="col text-center">
-                        <h4>Unanswered polls</h4>
-                    </div>
-                    <div className="col text-center">
-                        <h4>Answered polls</h4>
-                    </div>
-                </div>
-                <div className="row border">
-                    <div className="col border text-center">
-                        {props.nonAnswered.map(id =>
-                            <PollInfo id={id} voted={false} key={id} />)
-                        }
-                    </div>
-
-                    <div className="col border text-center">
-                        {props.answered.map(id =>
-                            <PollInfo id={id} voted={true} key={id} />
-                        )
-                        }
-                    </div>
-                </div>
+                <Tabs className="Tabs">
+                    <TabList>
+                        <Tab><h6>Unanswered polls</h6></Tab>
+                        <Tab><h6>Answered polls</h6></Tab>
+                    </TabList>
+                    <TabPanel>
+                        <div className="border text-center">
+                            {props.nonAnswered.map(id =>
+                                <PollInfo id={id} voted={false} key={id} />)
+                            }
+                        </div>
+                    </TabPanel>
+                    <TabPanel>
+                        <div className="border text-center">
+                            {props.answered.map(id =>
+                                <PollInfo id={id} voted={true} key={id} />)
+                            }
+                        </div>
+                    </TabPanel>
+                </Tabs> 
             </div>
         </div>
     );
 };
-
 
 const mapStateToProps = ({ questions, authedUser }) => {
     const answered = Object.keys(questions).filter(id => authedUser
